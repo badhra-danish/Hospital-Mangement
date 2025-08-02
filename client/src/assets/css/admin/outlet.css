@@ -1,0 +1,15 @@
+.outlet{
+    display: flex;
+    align-content: center;
+}
+.outlet-child{
+   margin-top: 7rem;
+   margin-left: 18rem;
+overflow: auto;
+}
+.sidebar{
+    position: fixed;
+}
+.outlet-child p{
+    font-size: 5rem;
+}
