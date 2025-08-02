@@ -1,0 +1,49 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-bgcolor);
+  padding: 1.5rem 2rem;
+  color: var(--white-color);
+}
+.footer-left-part {
+  width: 35%;
+}
+.footer-detail-parts h4 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+}
+.footer-detail-parts .footer-name-description p {
+  margin-bottom: 1.4rem;
+  font-size: 1rem;
+}
+.footer-detail-parts .detail-contact-email {
+  display: flex;
+  justify-content: space-between;
+}
+.detail-contact-email .detail-contact p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.detail-contact-email .detail-contact h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.footer-right-part {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.footer-right-part .footer-services h4 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.footer-right-part .footer-services li {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+.footer-right-part .footer-quik-link .li {
+  display: block;
+}

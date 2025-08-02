@@ -5,6 +5,7 @@ import viteLogo from "/vite.svg";
 import Sidebar from "./layouts/admin/sidebar";
 import Adminroutes from "./routes/admin/Adminroutes";
 import Navbar from "./layouts/Navbar";
+import Footer from "./layouts/client/Footer";
 import "./assets/css/main.css";
 import "./App.css";
 
@@ -13,6 +14,7 @@ function App() {
     <>
       {/* <Adminroutes /> */}
       <Navbar />
+      <Footer />
     </>
   );
 }
