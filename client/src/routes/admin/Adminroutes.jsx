@@ -7,7 +7,7 @@ function Adminroutes() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/admin" element={<Layout />}>
           <Route path="/admin/dashboard" element={<Appointment />} />
           <Route path="/admin/patient" element={<Patient />} />
         </Route>

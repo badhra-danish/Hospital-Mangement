@@ -1,0 +1,121 @@
+.hero-wrapper {
+  font-family: "Inter", sans-serif;
+  background-color: var(--primary-bgcolor);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 3rem;
+  overflow: hidden;
+}
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 2rem;
+}
+.hero-left-content {
+  flex: 1;
+  color: var(--white-color);
+  max-width: 60%;
+}
+.hero-left-content .content-title h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+.hero-left-content .content-title p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+}
+
+/* buttons */
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 7rem;
+}
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-btncolor); /* Dark gray */
+  color: var(--white-color);
+  border-color: var(--primary-btncolor);
+}
+
+.btn-primary:hover {
+  background-color: var(--white-color);
+  color: var(--primary-btncolor);
+}
+
+.btn-secondary {
+  background-color: var(--white-color);
+  color: var(--primary-btncolor);
+  border-color: var(--primary-btncolor);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-btncolor);
+  color: var(--white-color);
+}
+
+/* Patient Statistics */
+.patient-stats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.patient-avatars {
+  display: flex;
+}
+
+.patient-avatars .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid var(--primary-bgcolor);
+  margin-left: -15px;
+  background-color: #ccc;
+  object-fit: cover;
+}
+.patient-avatars .avatar:first-child {
+  margin-left: 0;
+}
+.stats-text .count {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.stats-text .label {
+  font-size: 0.9rem;
+}
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 40%;
+}
+.hero-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}

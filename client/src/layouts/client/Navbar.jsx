@@ -1,5 +1,5 @@
 import React from "react";
-import "../assets/css/client/navbar.css";
+import "../../assets/css/client/navbar.css";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
@@ -13,7 +13,7 @@ function Navbar() {
           <NavLink to="/" className="li">
             Home
           </NavLink>
-          <NavLink to="/" className="li">
+          <NavLink to="/about" className="li">
             About
           </NavLink>
           <NavLink to="/" className="li">
