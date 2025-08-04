@@ -1,25 +1,24 @@
 .hero-wrapper {
-  font-family: "Inter", sans-serif;
-  background-color: var(--primary-bgcolor);
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.05) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5rem 3rem;
+  /* font-family: "Inter", sans-serif; */
+  position: relative;
+  min-height: 157vh;
   overflow: hidden;
 }
+
 .hero-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   gap: 2rem;
+  background-color: var(--primary-bgcolor);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.151) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.151) 1px, transparent 1px);
+  background-size: 50px 50px;
+  padding: 5rem 3rem;
 }
 .hero-left-content {
   flex: 1;
@@ -44,7 +43,7 @@
 .hero-buttons {
   display: flex;
   gap: 1rem;
-  margin-bottom: 7rem;
+  margin-bottom: 5rem;
 }
 .btn {
   padding: 0.8rem 1.5rem;
@@ -59,7 +58,6 @@
 .btn-primary {
   background-color: var(--primary-btncolor); /* Dark gray */
   color: var(--white-color);
-  border-color: var(--primary-btncolor);
 }
 
 .btn-primary:hover {
@@ -70,7 +68,6 @@
 .btn-secondary {
   background-color: var(--white-color);
   color: var(--primary-btncolor);
-  border-color: var(--primary-btncolor);
 }
 
 .btn-secondary:hover {
@@ -118,4 +115,187 @@
   max-width: 100%;
   height: auto;
   border-radius: 1rem;
+}
+.exprience-section {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+  width: 100%;
+}
+.exprience-section .exprience-left-div {
+  position: relative;
+  width: 35%;
+  background-color: var(--secondary-bgcolor);
+  padding: 2rem;
+  border-radius: 15px;
+  height: 320px;
+  overflow: hidden;
+}
+.exprience-section .exprience-left-div::before,
+.exprience-section .exprience-left-div::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--primary-bgcolor);
+  opacity: 50%;
+  bottom: -150px;
+  right: -150px;
+}
+.exprience-section .exprience-left-div::before {
+  width: 400px;
+  height: 400px;
+}
+.exprience-section .exprience-left-div::after {
+  width: 300px;
+  height: 300px;
+  bottom: -100px;
+  right: -100px;
+}
+.exprience-section .exprience-left-div h1 {
+  font-size: 4rem;
+  margin-bottom: 6rem;
+}
+.exprience-section .exprience-left-div h6 {
+  text-align: end;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.exprience-section .exprience-left-div p {
+  text-align: end;
+  opacity: 70%;
+}
+.exprience-section .exprience-right-div {
+  width: 70%;
+  background-color: var(--background-color);
+  padding: 2rem;
+  height: 320px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.exprience-right-div .left-description {
+  width: 45%;
+}
+.exprience-right-div .left-description h5 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.1rem;
+  margin-bottom: 4rem;
+}
+.exprience-right-div .left-description p {
+  font-size: 1.1rem;
+  opacity: 80%;
+}
+.exprience-right-div .right-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+}
+.exprience-right-div .right-description h2 {
+  color: var(--primary-bgcolor);
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+.exprience-right-div .right-description p {
+  font-size: 1rem;
+  opacity: 80%;
+}
+
+/* what We Offer section */
+
+.what-offer-wrapper {
+  padding: 2rem;
+  width: 100%;
+}
+.offer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: nowrap;
+  gap: 7rem;
+  margin-bottom: 3rem;
+}
+
+.offer-head .offer-head-left h2 {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  opacity: 90%;
+}
+.offer-head .offer-head-right p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.offer-head-right .head-btn {
+  background-color: var(--primary-btncolor);
+  border-radius: 25px;
+  border: none;
+  padding: 0.7rem 2rem;
+  color: var(--white-color);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: 0.5s ease;
+}
+.offer-head-right .head-btn:hover {
+  background-color: var(--primary-bgcolor);
+}
+.offer-types-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.offer-types-main .offer-type {
+  background-color: var(--primary-bgcolor);
+  width: 30%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.offer-type .type-head {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
+.offer-type .type-head img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.offer-type .type-head p {
+  font-size: 1.5rem;
+  color: var(--white-color);
+  font-weight: 500;
+}
+.offer-type .type-img img {
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.offer-type .type-description {
+  padding: 1rem;
+  background-color: var(--background-color);
+}
+.offer-type .type-description p {
+  font-size: 1rem;
+  opacity: 70%;
+  margin-bottom: 1.5rem;
+}
+.offer-type .type-description .type-btn {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary-btncolor);
 }
