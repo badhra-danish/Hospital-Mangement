@@ -6,13 +6,15 @@ import emc from "../../../assets/images/client/emc.jpeg";
 import doctorcheckup from "../../../assets/images/client/doctorcheckup.jpeg";
 import emccheckup from "../../../assets/images/client/emccheckup.jpeg";
 import cardiocheckup from "../../../assets/images/client/cardiocheckup.jpeg";
+
+import { CircleArrowRight } from "lucide-react";
 function WhatOffer() {
   return (
     <>
       <div className="what-offer-wrapper">
         <div className="offer-head">
           <div className="offer-head-left">
-            <h6 className="section-heading">WHAT WE OFFER</h6>
+            <p className="section-heading">WHAT WE OFFER</p>
             <h2>Comprehensive Medical Services for Every Stage of Life</h2>
           </div>
           <div className="offer-head-right">
@@ -37,7 +39,50 @@ function WhatOffer() {
                 Regular health assessments for early disease detection. Lorem
                 ipsum dolor sit amet.
               </p>
-              <button className="type-btn">View Details</button>
+              <button className="type-btn">
+                View Details
+                <CircleArrowRight className="arrow" />
+              </button>
+            </div>
+          </div>
+
+          <div className="offer-type">
+            <div className="type-head">
+              <img src={emc} />
+              <p>Emergency & Urgent Care</p>
+            </div>
+            <div className="type-img">
+              <img src={emccheckup} />
+            </div>
+            <div className="type-description">
+              <p>
+                Regular health assessments for early disease detection. Lorem
+                ipsum dolor sit amet.
+              </p>
+              <button className="type-btn">
+                View Details
+                <CircleArrowRight className="arrow" />
+              </button>
+            </div>
+          </div>
+
+          <div className="offer-type">
+            <div className="type-head">
+              <img src={heart} />
+              <p>Cardiology & Heart Health </p>
+            </div>
+            <div className="type-img">
+              <img src={cardiocheckup} />
+            </div>
+            <div className="type-description">
+              <p>
+                Regular health assessments for early disease detection. Lorem
+                ipsum dolor sit amet.
+              </p>
+              <button className="type-btn">
+                View Details
+                <CircleArrowRight className="arrow" />
+              </button>
             </div>
           </div>
         </div>
