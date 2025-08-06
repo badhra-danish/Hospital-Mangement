@@ -3,6 +3,7 @@ import "../../../assets/css/client/Home/home.css";
 import choose1img from "../../../assets/images/client/chooseus1.jpg";
 import choose2img from "../../../assets/images/client/chooseus2.jpeg";
 import { Clock5 } from "lucide-react";
+import { Check } from "lucide-react";
 function Whychooseus() {
   return (
     <>
@@ -46,11 +47,30 @@ function Whychooseus() {
             </p>
             <div className="info-list">
               <ul>
-                <li>Highly Experienced & Certified Doctors</li>
-                <li>State-of-the-Art Medical Facilities</li>
-                <li>Comprehensive & Personalized Treatment</li>
-                <li>Commitment to Safety, Quality, and Innovation</li>
-                <li>Multilingual, Patient-Friendly Staff</li>
+                <li>
+                  <Check className="check" /> Highly Experienced & Certified
+                  Doctors
+                </li>
+                <li>
+                  {" "}
+                  <Check className="check" />
+                  State-of-the-Art Medical Facilities
+                </li>
+                <li>
+                  {" "}
+                  <Check className="check" />
+                  Comprehensive & Personalized Treatment
+                </li>
+                <li>
+                  {" "}
+                  <Check className="check" />
+                  Commitment to Safety, Quality, and Innovation
+                </li>
+                <li>
+                  {" "}
+                  <Check className="check" />
+                  Multilingual, Patient-Friendly Staff
+                </li>
               </ul>
             </div>
           </div>
