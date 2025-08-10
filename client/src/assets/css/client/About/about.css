@@ -1,0 +1,160 @@
+.who-we-are-main-container {
+  width: 100%;
+  padding: 2rem;
+}
+.who-we-are-main {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.who-we-are-main .who-we-are-left-part {
+  width: 40%;
+}
+.who-we-are-left-part .left-head-info h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  line-height: 1.3;
+}
+.left-head-info p {
+  font-size: 1.05rem;
+  color: var(--primary-infocolor);
+  margin-top: 1rem;
+}
+.who-we-are-left-part .left-list-div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 2rem;
+}
+.who-we-are-left-part .left-list-div li {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+  font-weight: 500;
+  font-size: 1.1rem;
+  opacity: 80%;
+}
+.left-list-div .check-icon {
+  background-color: var(--primary-bgcolor);
+  color: var(--white-color);
+  border-radius: 50%;
+  padding: 0.2rem;
+  stroke-width: 4px;
+  width: 20px;
+  height: 20px;
+}
+.who-we-are-left-part .commitment-wrapper {
+  width: 100%;
+  margin-top: 3rem;
+  border-left: 2.5px solid var(--primary-bgcolor);
+  display: flex;
+  align-items: center;
+}
+.commitment-wrapper p {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--primary-infocolor);
+  margin-left: 2rem;
+}
+.who-we-are-left-part .learn-more-btn {
+  margin-top: 2.5rem;
+  background-color: var(--primary-btncolor);
+  border: none;
+  color: var(--white-color);
+  border-radius: 30px;
+  font-size: 1rem;
+  padding: 0.7rem 2rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+.learn-more-btn:hover {
+  background-color: var(--primary-bgcolor);
+}
+.who-we-are-right-part {
+  display: flex;
+  align-items: center;
+  width: 45%;
+}
+.team-stats-container {
+  position: relative; /* This is CRUCIAL for absolute positioning of children */
+
+  width: 100%;
+}
+.main-image {
+  width: 100%;
+  height: auto;
+  display: block; /* Removes any extra space below the image */
+  border-radius: 20px;
+  object-fit: cover;
+}
+.overlap-image,
+.stats-box {
+  position: absolute; /* Positioned relative to .team-stats-container */
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+.overlap-image.bottom {
+  width: 50%;
+  top: 20%;
+  left: -25%;
+}
+.stats-box {
+  width: 35%;
+  background-color: var(--primary-bgcolor); /* A nice teal color */
+  color: var(--white-color);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  bottom: 5%;
+  right: 5%;
+}
+.stats-number {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+}
+
+.stats-text {
+  font-size: 1rem;
+  margin: 0.5rem 0 0 0;
+  line-height: 1.4;
+}
+.our-mission-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  margin: 5rem 0;
+}
+.our-mission-section .our-mission-card {
+  flex: 1;
+  transition: 0.3s ease;
+}
+.our-mission-card:hover {
+  transform: translateY(-6px);
+}
+.our-mission-card .mission-head {
+  background-color: var(--primary-bgcolor);
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--white-color);
+  padding: 1rem 1.5rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  font-family: var(--primary-font);
+}
+.our-mission-card .mission-info {
+  padding: 1.5rem 1.5rem;
+  background-color: var(--background-color);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  color: var(--primary-infocolor);
+  font-family: var(--primary-font);
+}
+.our-mission-card .mission-info p {
+  line-height: 1.9;
+  font-size: 1rem;
+}

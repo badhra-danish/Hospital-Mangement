@@ -1,8 +1,7 @@
 .hero-wrapper {
-  /* font-family: "Inter", sans-serif; */
   position: relative;
-  min-height: 157vh;
-  overflow: hidden;
+  min-height: auto;
+  padding-bottom: 50px;
 }
 
 .hero-container {
@@ -116,15 +115,23 @@
   height: auto;
   border-radius: 1rem;
 }
-.exprience-section {
+/* .exprience-section {
   position: absolute;
-  bottom: 0;
+  top: 650px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
   gap: 2rem;
   width: 100%;
+} */
+.exprience-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+  margin-top: -150px;
 }
 .exprience-section .exprience-left-div {
   position: relative;
@@ -729,7 +736,7 @@ input[type="date"]:invalid {
 
 .Doctor-detail-main {
   width: 100%;
-  padding: 2rem;
+  padding: 5rem 2rem;
 }
 .Doctor-detail-main .doctor-detail-head {
   text-align: center;
@@ -755,7 +762,8 @@ input[type="date"]:invalid {
 /* ========================================= */
 .testimonial-main-container {
   width: 100%;
-  padding: 2rem;
+  padding: 5rem 2rem;
+  background-color: var(--background-color);
 }
 .testimonial-main-container .testimonial-head p {
   font-size: 2.5rem;
@@ -819,13 +827,14 @@ input[type="date"]:invalid {
 /* Trips & Articals Sections...          */
 /* ========================================= */
 .TipsArtical-main-container {
-  padding: 2rem;
+  padding: 7rem 2rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  gap: 2rem;
 }
 .TipsArtical-main-container .tripsArtical-left-parts {
-  width: 35%;
+  width: 33%;
 }
 .tripsArtical-left-parts h3 {
   font-size: 2.5rem;
@@ -836,6 +845,13 @@ input[type="date"]:invalid {
   font-size: 1rem;
   color: var(--primary-infocolor);
   margin-top: 1rem;
+}
+.tripsArtical-right-parts {
+  flex: 1;
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 /* ========================================= */
 /* Responsive Media Queries             */

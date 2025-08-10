@@ -74,3 +74,81 @@
   margin-top: 1rem;
   font-size: 1rem;
 }
+
+/* =================================== */
+/* Responsive Footer CSS       */
+/* =================================== */
+
+/* For Tablets (~992px and below) */
+@media (max-width: 992px) {
+  .footer .footer-child {
+    /* Stack the left and right sections vertically instead of side-by-side */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem; /* Add space between the stacked sections */
+  }
+
+  .footer-left-part,
+  .footer-right-part {
+    /* Allow each section to use the full width */
+    width: 100%;
+  }
+
+  .footer-right-part {
+    /* Ensure the inner columns (Services, Links, etc.) can wrap */
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align wrapped items to the left */
+    gap: 2rem; /* Add space between wrapped items */
+  }
+}
+
+/* For Mobile Devices (~768px and below) */
+@media (max-width: 768px) {
+  /* Reduce padding on the main footer for smaller screens */
+  .footer {
+    padding: 2rem 1rem;
+  }
+
+  /* Stack the copyright and other bottom content */
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .footer-bottom p {
+    margin-top: 0; /* Reset margin for stacked layout */
+  }
+
+  /* Adjust font sizes for better readability on small screens */
+  .footer-detail-parts h4 {
+    font-size: 2rem;
+  }
+  .footer-right-part h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .footer-detail-parts .footer-name-description p,
+  .footer-right-part .footer-services li {
+    font-size: 0.95rem;
+  }
+}
+
+/* For Small Mobile Devices (~480px and below) */
+@media (max-width: 480px) {
+  /* Stack the contact number and email address */
+  .footer-detail-parts .detail-contact-email {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem; /* Add space between contact and email */
+  }
+
+  .footer-right-part {
+    /* Fully stack the Services, Quick Link, and Social columns */
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-bottom {
+    margin-top: 2rem;
+  }
+}

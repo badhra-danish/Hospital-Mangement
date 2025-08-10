@@ -1,0 +1,38 @@
+.page-head-main-container {
+  width: 100%;
+  background-color: var(--primary-bgcolor);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.151) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.151) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+.page-head-main-container .page-head {
+  text-align: center;
+  padding: 5rem 0;
+}
+.page-head h5 {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  color: var(--white-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  opacity: 80%;
+}
+.page-head h3 {
+  font-size: 3.5rem;
+  color: var(--white-color);
+  margin-bottom: 1rem;
+}
+.page-head .info {
+  color: var(--white-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.info p {
+  width: 50%;
+  font-size: 1rem;
+}
