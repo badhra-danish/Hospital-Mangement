@@ -2,7 +2,15 @@ import React from "react";
 import "../../../assets/css/client/About/about.css";
 import MainImg from "../../../assets/images/client/aboutdoctor1.webp";
 import overLapImg from "../../../assets/images/client/aboutdoctor2.jpeg";
+import doctorsTeams from "../../../assets/images/client/doctorsteams.png";
 import { Check } from "lucide-react";
+
+const impactData = [
+  { value: "35+", label: "Medical Specialties" },
+  { value: "250+", label: "Hospital Rooms" },
+  { value: "98%", label: "Positive Feedback" },
+  { value: "15+", label: "Years of Experience" },
+];
 function WhatWeAre() {
   const [openMission, setOpenMission] = React.useState(true);
   const handleClickMission = () => {
@@ -77,7 +85,6 @@ function WhatWeAre() {
           </div>
         </div>
       </div>
-
       <div className="our-mission-section">
         <div className="our-mission-card">
           <div className="mission-head" onClick={handleClickMission}>
@@ -111,6 +118,45 @@ function WhatWeAre() {
               </p>
             </div>
           )}
+        </div>
+      </div>
+      <div className="core-value-main">
+        <div className="img">
+          <img src={doctorsTeams} />
+        </div>
+        <div className="core-value-info">
+          <h5>Core Value</h5>
+          <p>
+            Aenean ornare pretium sagittis. Cras pretium mauris nisl, eget
+            sagittis dolor aliquet vel. Donec rhoncus sapien sed dui pulvinar,
+            sed dignissim ex tempus. Integer porttitor euismod dolor, ut tempor
+            nisl ultrices ac. Donec consequat sapien est. Donec vulputate.
+          </p>
+          <div className="core-value-btn">
+            <div className="btn">Compassionate Care</div>
+            <div className="btn">Clinical Excellence</div>
+            <div className="btn">Patient Safety</div>
+            <div className="btn">Innovation & Technology</div>
+            <div className="btn">Respect & Integrity</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="impact-section">
+        <div className="impact-header">
+          <h2>Our Impact in Numbers</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+            tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+          </p>
+        </div>
+        <div className="impact-card">
+          {impactData.map((item, index) => (
+            <div key={index} className="impact-item">
+              <span className="impact-number">{item.value}</span>
+              <p className="impact-label">{item.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

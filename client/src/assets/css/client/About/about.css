@@ -1,6 +1,6 @@
 .who-we-are-main-container {
   width: 100%;
-  padding: 2rem;
+  padding: 5rem 2rem;
 }
 .who-we-are-main {
   width: 100%;
@@ -129,6 +129,7 @@
   width: 100%;
   margin: 5rem 0;
 }
+
 .our-mission-section .our-mission-card {
   flex: 1;
   transition: 0.3s ease;
@@ -157,4 +158,156 @@
 .our-mission-card .mission-info p {
   line-height: 1.9;
   font-size: 1rem;
+}
+.core-value-main {
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+.core-value-main .img img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.core-value-main .img {
+  position: relative;
+}
+.img::before {
+  content: "";
+  position: absolute;
+  background: linear-gradient(
+    to right,
+    rgba(16, 92, 105, 0.9),
+    rgba(76, 160, 122, 0.7)
+  );
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.core-value-main .core-value-info {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  z-index: 1;
+  width: 50%;
+}
+.core-value-info h5 {
+  color: var(--white-color);
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-family: var(--primary-font);
+  margin-bottom: 1rem;
+}
+.core-value-info p {
+  color: var(--white-color);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.9;
+}
+.core-value-info .core-value-btn {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.core-value-btn .btn {
+  border: 1px solid var(--white-color);
+  color: var(--white-color);
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  transition: 0.5s ease;
+}
+.core-value-btn .btn:hover {
+  background-color: var(--white-color);
+  color: var(--primary-btncolor);
+}
+.impact-section {
+  background-color: var(
+    --primary-bgcolor
+  ); /* A teal/green color similar to the image */
+  margin-top: 3rem;
+  padding: 2rem 2rem 0rem;
+  text-align: center;
+  color: white;
+  font-family: Arial, sans-serif; /* A common sans-serif font */
+}
+
+/* Header text styling */
+.impact-header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.impact-header p {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 40px auto; /* Center the paragraph and add bottom margin */
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+}
+
+/* The white card containing the numbers */
+.impact-card {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  background-color: var(--background-color);
+  max-width: 1100px;
+  margin: 0 auto; /* Center the card */
+  padding: 30px 20px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+/* Individual stat item */
+.impact-item {
+  flex: 1; /* Each item takes up equal space */
+  min-width: 200px; /* Minimum width before wrapping */
+  padding: 10px;
+}
+
+/* The large number */
+.impact-number {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2d7a79; /* Match the background color */
+  margin-bottom: 8px;
+}
+
+/* The label below the number */
+.impact-label {
+  font-size: 1rem;
+  color: #555; /* A dark gray for readability */
+  margin: 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .impact-header h2 {
+    font-size: 2rem;
+  }
+
+  .impact-card {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    gap: 20px; /* Add space between stacked items */
+  }
+
+  .impact-item {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .impact-number {
+    font-size: 3rem;
+  }
 }

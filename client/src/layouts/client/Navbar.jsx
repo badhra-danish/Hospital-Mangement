@@ -16,27 +16,27 @@ function Navbar() {
           <NavLink to="/about" className="li">
             About
           </NavLink>
-          <NavLink to="/" className="li">
+          <NavLink to="/services" className="li">
             Services
           </NavLink>
           <div className="dropdown li">
             Pages
             <div class="dropdown-menu">
-              <NavLink to="/" className="list">
+              <NavLink to="/doctors" className="list">
                 Doctors
               </NavLink>
-              <NavLink to="/" className="list">
+              <NavLink to="/appointments" className="list">
                 Appointment
               </NavLink>
-              <NavLink to="/" className="list">
+              <NavLink to="/blogs" className="list">
                 Blogs
               </NavLink>
-              <NavLink to="/" className="list">
+              <NavLink to="/faqs" className="list">
                 FAQs
               </NavLink>
             </div>
           </div>
-          <NavLink to="/" className="li">
+          <NavLink to="/contacts" className="li">
             Contacts
           </NavLink>
         </div>

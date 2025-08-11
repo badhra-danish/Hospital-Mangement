@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Layouts from "../../layouts/client/Layout";
 import Home from "../../pages/client/Home";
 import About from "../../pages/client/About";
+import Services from "../../pages/client/Services";
 function Clientroutes() {
   return (
     <>
@@ -10,6 +11,7 @@ function Clientroutes() {
         <Route path="/" element={<Layouts />}>
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
           {/* other routes are here  */}
         </Route>
       </Routes>

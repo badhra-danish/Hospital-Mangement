@@ -44,7 +44,7 @@
   gap: 1rem;
   margin-bottom: 5rem;
 }
-.btn {
+.hero-buttons .btn {
   padding: 0.8rem 1.5rem;
   border-radius: 30px;
   border: 2px solid transparent;
@@ -260,6 +260,7 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 .offer-types-main .offer-type {
   background-color: var(--primary-bgcolor);
