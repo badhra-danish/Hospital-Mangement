@@ -1,0 +1,111 @@
+/* --- Main FAQ Container --- */
+.faq-container {
+  width: 100%;
+  display: flex;
+  gap: 3rem;
+  padding: 3rem 2rem;
+}
+
+.about-services-faqs {
+  display: flex;
+  gap: 3rem;
+  width: 100%;
+  margin-top: 4rem;
+}
+/* --- Left Side: Intro Content --- */
+.faq-intro {
+  flex: 1.5;
+  width: 40%;
+}
+
+.faq-intro h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.faq-intro p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--primary-infocolor);
+  margin-top: 1rem;
+}
+
+/* --- Right Side: Accordion --- */
+.faq-accordion {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  border-radius: 8px;
+  overflow: hidden; /* Important for border-radius on children */
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background-color: var(--background-color); /* Light grey */
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.1rem;
+  opacity: 80%;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #e9ecef;
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* --- Answer Styling --- */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.faq-answer p {
+  padding: 1.5rem;
+  font-size: 1rem;
+  margin: 0;
+  color: var(--primary-infocolor);
+  line-height: 1.7;
+}
+
+/* --- Active State (when an item is open) --- */
+.faq-item.active .faq-question {
+  background-color: var(--secondary-bgcolor); /* Light teal */
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px; /* Adjust if your answers are longer */
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(360deg);
+}
+
+/* --- Responsive Design for Smaller Screens --- */
+@media (max-width: 992px) {
+  .faq-container {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .faq-intro {
+    max-width: 100%;
+    text-align: center;
+  }
+}

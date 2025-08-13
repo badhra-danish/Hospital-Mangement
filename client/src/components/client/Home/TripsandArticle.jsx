@@ -1,5 +1,6 @@
 import React from "react";
 import BlogCard from "../utils/BlogCard";
+import BlogImg1 from "../../../assets/images/client/Blogimg.jpg";
 function TripsandArticle() {
   return (
     <>
@@ -13,8 +14,22 @@ function TripsandArticle() {
           </p>
         </div>
         <div className="tripsArtical-right-parts">
-          <BlogCard />
-          <BlogCard />
+          <BlogCard
+            img={BlogImg1}
+            title={"How to Prepare for Your First Telemedicine Consultation"}
+            date={"June 20, 2025"}
+            info={
+              "Aenean ornare pretium sagittis. Cras pretium mauris nisl, eget sagittis…"
+            }
+          />
+          <BlogCard
+            img={BlogImg1}
+            title={"How to Prepare for Your First Telemedicine Consultation"}
+            date={"June 20, 2025"}
+            info={
+              "Aenean ornare pretium sagittis. Cras pretium mauris nisl, eget sagittis…"
+            }
+          />
         </div>
       </div>
     </>

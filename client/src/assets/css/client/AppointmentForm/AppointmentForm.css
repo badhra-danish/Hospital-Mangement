@@ -1,0 +1,43 @@
+.appointment-form-container {
+  width: 100%;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--background-color);
+}
+.appointment-form-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 40%;
+}
+.appointment-form-info .top-info h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  font-family: var(--primary-font);
+}
+.appointment-form-info .top-info p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--primary-infocolor);
+}
+.immediate-info h6 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.immediate-info p {
+  color: var(--primary-infocolor);
+  font-style: italic;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+.immediate-info p span {
+  color: rgb(32, 32, 32);
+  font-weight: 600;
+  font-style: normal;
+}
+.appointment-form-main {
+  width: 55%;
+}

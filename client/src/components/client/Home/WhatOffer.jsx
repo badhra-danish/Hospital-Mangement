@@ -15,7 +15,9 @@ import servImglab from "../../../assets/images/client/servimglab.jpg";
 import Servicecard from "../utils/Servicecard";
 import { CircleArrowRight } from "lucide-react";
 
-function WhatOffer() {
+function WhatOffer({ services, limit }) {
+  const displayServises = limit ? services.slice(0, limit) : services;
+
   return (
     <>
       <div className="what-offer-wrapper">
@@ -34,54 +36,14 @@ function WhatOffer() {
         </div>
 
         <div className="offer-types-main">
-          <Servicecard
-            serIcon={checkup}
-            serType={"General Health Checkups"}
-            serImg={doctorcheckup}
-            serInfo={
-              "Regular health assessments for early disease detection. Loremipsum dolor sit amet."
-            }
-          />
-          <Servicecard
-            serIcon={emc}
-            serType={"Emergency & Urgent Care"}
-            serImg={emccheckup}
-            serInfo={
-              "Regular health assessments for early disease detection. Loremipsum dolor sit amet."
-            }
-          />
-          <Servicecard
-            serIcon={heart}
-            serType={"General Health Checkups"}
-            serImg={cardiocheckup}
-            serInfo={
-              "Regular health assessments for early disease detection. Loremipsum dolor sit amet."
-            }
-          />
-          <Servicecard
-            serIcon={servIconFamily}
-            serType={"Pediatrics & Family Medicine"}
-            serImg={servImgfamily}
-            serInfo={
-              "Regular health assessments for early disease detection. Loremipsum dolor sit amet."
-            }
-          />
-          <Servicecard
-            serIcon={servIconOrtho}
-            serType={"Orthopedic & Physiotherapy"}
-            serImg={servImgortho}
-            serInfo={
-              "Regular health assessments for early disease detection. Loremipsum dolor sit amet."
-            }
-          />
-          <Servicecard
-            serIcon={servIconlab}
-            serType={"Orthopedic & Physiotherapy"}
-            serImg={servImglab}
-            serInfo={
-              "Regular health assessments for early disease detection. Loremipsum dolor sit amet."
-            }
-          />
+          {displayServises?.map((service) => (
+            <Servicecard
+              serIcon={service.sericon}
+              serType={service.sertype}
+              serImg={service.serimg}
+              serInfo={service.serinfo}
+            />
+          ))}
         </div>
       </div>
     </>

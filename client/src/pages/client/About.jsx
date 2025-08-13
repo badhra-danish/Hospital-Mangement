@@ -1,6 +1,10 @@
 import React from "react";
 import PageHead from "../../components/client/utils/PageHead";
 import WhatWeAre from "../../components/client/About/WhatWeAre";
+import DoctorDetail from "../../components/client/Home/DoctorDetail";
+import WhyTrustUs from "../../components/client/About/WhyTrustUs";
+import Testimonial from "../../components/client/Home/Testimonial";
+
 function About() {
   return (
     <>
@@ -12,6 +16,9 @@ function About() {
         }
       />
       <WhatWeAre />
+      <WhyTrustUs />
+      <DoctorDetail />
+      <Testimonial />
     </>
   );
 }

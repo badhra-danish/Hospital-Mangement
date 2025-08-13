@@ -159,6 +159,45 @@
   line-height: 1.9;
   font-size: 1rem;
 }
+
+/* ===================================================================
+    Responsive Media Queries
+=================================================================== */
+
+/* For Tablets & Mobile Devices (Screens less than 768px wide) */
+@media (max-width: 768px) {
+  .our-mission-section {
+    /* Stack the cards vertically instead of side-by-side */
+    flex-direction: column;
+
+    /* Reduce the vertical margin for a better fit on mobile */
+    margin: 3rem 0;
+  }
+}
+
+/* For Small Mobile Devices (Screens less than 480px wide) */
+@media (max-width: 480px) {
+  .our-mission-card {
+    flex: 1;
+    width: 100%;
+  }
+  .our-mission-card .mission-head {
+    /* Reduce font size in the header for small screens */
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 1rem 1.2rem;
+  }
+
+  .our-mission-card .mission-info {
+    padding: 1.2rem;
+  }
+
+  .our-mission-card .mission-info p {
+    /* Slightly smaller font for the paragraph text */
+    font-size: 0.95rem;
+  }
+}
+
 .core-value-main {
   width: 100%;
   border-radius: 15px;
@@ -228,18 +267,86 @@
   background-color: var(--white-color);
   color: var(--primary-btncolor);
 }
+
+/* ===================================================================
+    Responsive Media Queries
+=================================================================== */
+
+/* For Tablets (Screens less than 992px wide) */
+@media (max-width: 992px) {
+  .core-value-main .core-value-info {
+    /* Give the text more room by increasing its width */
+    width: 70%;
+  }
+
+  .core-value-info h5 {
+    font-size: 1.6rem;
+  }
+
+  .core-value-info p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* For Mobile Devices (Screens less than 768px wide) */
+@media (max-width: 768px) {
+  .core-value-main .img img {
+    /* Reduce image height on mobile to save vertical space */
+    height: 550px;
+  }
+
+  .core-value-main .core-value-info {
+    /* Make the info box span most of the width and center it */
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .core-value-info p {
+    line-height: 1.7;
+  }
+}
+
+/* For Small Mobile Devices (Screens less than 480px wide) */
+@media (max-width: 480px) {
+  .core-value-main .img img {
+    /* Further reduce image height on very small screens */
+    height: 660px;
+  }
+
+  .core-value-main .core-value-info {
+    padding: 0 1rem; /* Add some horizontal padding */
+    width: 100%; /* Use full width */
+  }
+
+  .core-value-info h5 {
+    /* Adjust font size for better readability */
+    font-size: 1.4rem;
+  }
+
+  .core-value-info p {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .core-value-btn .btn {
+    /* Slightly smaller padding on buttons */
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
 .impact-section {
-  background-color: var(
-    --primary-bgcolor
-  ); /* A teal/green color similar to the image */
+  background-color: var(--primary-bgcolor);
   margin-top: 3rem;
   padding: 2rem 2rem 0rem;
   text-align: center;
-  color: white;
-  font-family: Arial, sans-serif; /* A common sans-serif font */
+  color: var(--white-color);
+  border-radius: 15px;
 }
 
-/* Header text styling */
 .impact-header h2 {
   font-size: 2.5rem;
   font-weight: bold;
@@ -249,19 +356,19 @@
 .impact-header p {
   font-size: 1rem;
   max-width: 600px;
-  margin: 0 auto 40px auto; /* Center the paragraph and add bottom margin */
+  margin: 0 auto 40px auto;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+  color: var(--white-color);
 }
 
 /* The white card containing the numbers */
 .impact-card {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  flex-wrap: wrap;
   background-color: var(--background-color);
   max-width: 1100px;
-  margin: 0 auto; /* Center the card */
+  margin: 0 auto;
   padding: 30px 20px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -269,8 +376,8 @@
 
 /* Individual stat item */
 .impact-item {
-  flex: 1; /* Each item takes up equal space */
-  min-width: 200px; /* Minimum width before wrapping */
+  flex: 1;
+  min-width: 200px;
   padding: 10px;
 }
 
@@ -279,14 +386,14 @@
   display: block;
   font-size: 3.5rem;
   font-weight: 700;
-  color: #2d7a79; /* Match the background color */
+  color: var(--primary-bgcolor); /* Match the background color */
   margin-bottom: 8px;
 }
 
 /* The label below the number */
 .impact-label {
   font-size: 1rem;
-  color: #555; /* A dark gray for readability */
+  color: var(--primary-infocolor);
   margin: 0;
 }
 
@@ -297,9 +404,9 @@
   }
 
   .impact-card {
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column;
     align-items: center;
-    gap: 20px; /* Add space between stacked items */
+    gap: 20px;
   }
 
   .impact-item {
@@ -309,5 +416,159 @@
 
   .impact-number {
     font-size: 3rem;
+  }
+}
+
+/* General Section Styling */
+.trust-section {
+  background-color: var(--background-color); /* A very light grey background */
+  padding: 5rem 2rem;
+}
+
+/* Header Styling */
+.trust-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.trust-header h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+/* Grid Container */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 0 auto;
+}
+
+/* Base Card Styling */
+.trust-card {
+  padding: 32px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trust-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.trust-card h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  padding-right: 40px;
+  font-family: var(--primary-font); /* Space for the icon */
+}
+
+.trust-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Card Type Variations */
+.card-white {
+  background-color: var(--white-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.card-teal {
+  background-color: var(--primary-bgcolor);
+  color: var(--white-color);
+}
+.card-teal1 {
+  background-color: var(--primary-btncolor);
+  color: var(--white-color);
+}
+.card-teal .card-icon {
+  background-color: var(--secondary-bgcolor);
+  color: var(--primary-bgcolor);
+}
+.card-teal1 .card-icon {
+  background-color: var(--secondary-bgcolor);
+  color: var(--primary-bgcolor);
+}
+/* Image Card Specifics */
+.card-image {
+  grid-column: span 2; /* This is the key for the wide card */
+  color: var(--white-color);
+  display: flex;
+  align-items: flex-end;
+  min-height: 250px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dark overlay for the image card */
+.card-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(16, 92, 105, 0.9),
+    rgba(76, 160, 122, 0.7)
+  );
+  z-index: 1;
+}
+
+.card-image .card-content {
+  position: relative;
+  z-index: 2;
+}
+.card-content li {
+  margin-bottom: 0.5rem;
+}
+/* Icon Styling */
+.card-icon {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary-bgcolor);
+  color: var(--white-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Responsive Media Queries --- */
+
+/* For Tablets */
+@media (max-width: 992px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card-image {
+    grid-column: span 2; /* Make image card full-width */
+  }
+  .trust-header h2 {
+    font-size: 2.2rem;
+  }
+}
+
+/* For Mobile Phones */
+@media (max-width: 768px) {
+  .trust-section {
+    padding: 5rem 1rem;
+  }
+  .trust-grid {
+    grid-template-columns: 1fr; /* Stack all cards vertically */
+  }
+  .card-image {
+    grid-column: span 1; /* Reset span for single column layout */
+  }
+  .trust-header h2 {
+    font-size: 1.8rem;
   }
 }
