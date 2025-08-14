@@ -6,29 +6,29 @@ import "../../../assets/css/client/FAQs/faqs.css";
 
 const faqData = [
   {
-    question: "How do I book an appointment?",
+    question: "Which insurance providers do you accept?",
     answer:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
+      "Romedic accepts most major national and international health insurance providers. Please contact our reception or visit our website for the complete list.",
   },
   {
-    question: "Can I reschedule or cancel my appointment?",
+    question: "Can I pay out-of-pocket if I don’t have insurance?",
     answer:
-      "Yes, you can reschedule or cancel. Please provide at least 24 hours notice to avoid a cancellation fee. You can manage your appointments through your online portal or by calling our front desk.",
+      "Yes, you can choose to pay directly without insurance. We accept cash, credit/debit cards, and digital payments.",
   },
   {
-    question: "Do I need a referral to see a specialist?",
+    question: "Do you offer payment plans for large procedures?",
     answer:
-      "This depends on your insurance plan. Many PPO plans do not require a referral, while most HMO plans do. We recommend checking with your insurance provider directly to confirm their requirements.",
+      "Yes, we offer flexible payment plans for eligible large procedures to make treatment more affordable.",
   },
   {
-    question: "What happens if I'm late for my appointment?",
+    question: "Will I get a cost estimate before treatment?",
     answer:
-      "We have a 15-minute grace period. If you arrive later than 15 minutes after your scheduled appointment time, we may need to reschedule your visit to ensure our providers stay on schedule for all patients.",
+      "Yes, we provide a detailed cost estimate before starting any treatment so you can make an informed decision.",
   },
   {
-    question: "How far in advance should I book?",
+    question: "Is telemedicine covered by insurance?",
     answer:
-      "For routine check-ups, we recommend booking 2-4 weeks in advance. For urgent issues, we reserve a number of same-day appointments. Please call our office as early as possible for urgent availability.",
+      "Many insurance providers now cover telemedicine services. Coverage depends on your specific plan, so we recommend checking with your insurer.",
   },
 ];
 

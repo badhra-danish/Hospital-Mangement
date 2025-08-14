@@ -8,6 +8,7 @@ import Doctor from "../../pages/client/Doctor";
 import Appointmentform from "../../pages/client/Appointmentform";
 import BlogPage from "../../pages/client/BlogPage";
 import FAQSPage from "../../pages/client/FAQSPage";
+import ConatactPage from "../../pages/client/ConatactPage";
 function Clientroutes() {
   return (
     <>
@@ -20,6 +21,7 @@ function Clientroutes() {
           <Route path="/appointments" element={<Appointmentform />} />
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/faqs" element={<FAQSPage />} />
+          <Route path="/contacts" element={<ConatactPage />} />
           {/* other routes are here  */}
         </Route>
       </Routes>

@@ -4,31 +4,31 @@ import { ChevronUp } from "lucide-react";
 import { ChevronDown } from "lucide-react";
 import "../../../assets/css/client/FAQs/faqs.css";
 
-const faqData = [
+const FaqData = [
   {
-    question: "How do I book an appointment?",
+    question: "What medical services does Romedic provide?",
     answer:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
+      "Romedic offers a wide range of medical services including general medicine, specialist consultations, preventive health checkups, diagnostic tests, telemedicine, and minor procedures.",
   },
   {
-    question: "Can I reschedule or cancel my appointment?",
+    question: "Do you offer emergency services?",
     answer:
-      "Yes, you can reschedule or cancel. Please provide at least 24 hours notice to avoid a cancellation fee. You can manage your appointments through your online portal or by calling our front desk.",
+      "Yes, Romedic provides 24/7 emergency medical services for urgent health situations.",
   },
   {
-    question: "Do I need a referral to see a specialist?",
+    question: "Can I request a female doctor for specific services?",
     answer:
-      "This depends on your insurance plan. Many PPO plans do not require a referral, while most HMO plans do. We recommend checking with your insurance provider directly to confirm their requirements.",
+      "Yes, you can request a female doctor when booking your appointment, and we will do our best to accommodate your preference.",
   },
   {
-    question: "What happens if I'm late for my appointment?",
+    question: "Are telemedicine consultations available for all departments?",
     answer:
-      "We have a 15-minute grace period. If you arrive later than 15 minutes after your scheduled appointment time, we may need to reschedule your visit to ensure our providers stay on schedule for all patients.",
+      "Telemedicine consultations are available for most departments, though certain procedures may still require in-person visits.",
   },
   {
-    question: "How far in advance should I book?",
+    question: "Can children and seniors get checkups at your clinic?",
     answer:
-      "For routine check-ups, we recommend booking 2-4 weeks in advance. For urgent issues, we reserve a number of same-day appointments. Please call our office as early as possible for urgent availability.",
+      "Yes, our clinic offers comprehensive health checkups for all age groups, including children and senior citizens.",
   },
 ];
 
@@ -71,7 +71,7 @@ function AboutQuestions() {
 
       {/* Right Side - Accordion */}
       <div className="faq-accordion">
-        {faqData.map((item, index) => (
+        {FaqData.map((item, index) => (
           <FaqItem
             key={index}
             item={item}

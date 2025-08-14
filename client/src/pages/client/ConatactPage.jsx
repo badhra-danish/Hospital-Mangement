@@ -1,19 +1,21 @@
 import React from "react";
 import PageHead from "../../components/client/utils/PageHead";
-import Blogs from "../../components/client/Blogs/Blogs";
-function BlogPage() {
+import ContactUs from "../../components/client/ConatctUs/ConatctUs";
+import Maps from "../../components/client/ConatctUs/Maps";
+function ConatactPage() {
   return (
     <>
       <PageHead
-        pagename={"HEALTH TIPS & ARTICLES"}
-        pageheadline={"Latest News from Sehat"}
+        pagename={"Contact Us"}
+        pageheadline={"We’re Here to Help You"}
         pageinfo={
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
         }
       />
-      <Blogs />
+      <ContactUs />
+      <Maps />
     </>
   );
 }
 
-export default BlogPage;
+export default ConatactPage;

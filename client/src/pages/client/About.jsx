@@ -4,8 +4,61 @@ import WhatWeAre from "../../components/client/About/WhatWeAre";
 import DoctorDetail from "../../components/client/Home/DoctorDetail";
 import WhyTrustUs from "../../components/client/About/WhyTrustUs";
 import Testimonial from "../../components/client/Home/Testimonial";
+import doctor from "../../assets/images/client/doctorimg1.jpeg";
 
 function About() {
+  const Doctor = [
+    {
+      img: doctor,
+      name: "Dr. James Whitman",
+      specilization: "Pediatric Specialist",
+    },
+    {
+      img: doctor,
+      name: "Dr. James Whitman",
+      specilization: "Pediatric Specialist",
+    },
+    {
+      img: doctor,
+      name: "Dr. James Whitman",
+      specilization: "Pediatric Specialist",
+    },
+    {
+      img: doctor,
+      name: "Dr. James Whitman",
+      specilization: "Pediatric Specialist",
+    },
+    {
+      img: doctor,
+      name: "Dr. James Whitman",
+      specilization: "Pediatric Specialist",
+    },
+    {
+      img: doctor,
+      name: "Dr. James Whitman",
+      specilization: "Pediatric Specialist",
+    },
+    {
+      img: doctor,
+      name: "Dr. James Whitman",
+      specilization: "Pediatric Specialist",
+    },
+    {
+      img: doctor,
+      name: "Dr. James Whitman",
+      specilization: "Pediatric Specialist",
+    },
+    {
+      img: doctor,
+      name: "Dr. James Whitman",
+      specilization: "Pediatric Specialist",
+    },
+    {
+      img: doctor,
+      name: "Dr. James Whitman",
+      specilization: "Pediatric Specialist",
+    },
+  ];
   return (
     <>
       <PageHead
@@ -17,7 +70,7 @@ function About() {
       />
       <WhatWeAre />
       <WhyTrustUs />
-      <DoctorDetail />
+      <DoctorDetail doctors={Doctor} limit={4} />
       <Testimonial />
     </>
   );
