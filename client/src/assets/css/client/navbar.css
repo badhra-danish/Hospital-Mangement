@@ -1,4 +1,4 @@
-* {
+/* * {
   font-family: var(--secondary-font);
 }
 .navbar {
@@ -61,7 +61,137 @@
   border-radius: 30px;
   font-size: 0.9rem;
 }
+ */
+* {
+  font-family: var(--secondary-font);
+}
 
-/* ============================== */
-/* --- RESPONSIVE STYLES HERE --- */
-/* ============================== */
+.navbar {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--background-color);
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.navbar-logo-name {
+  font-size: 1rem;
+}
+
+.navbar-navlist {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: black;
+  gap: 3rem;
+}
+
+.navbar-navlist a {
+  color: black;
+  transition: 0.3s ease;
+}
+
+.navbar-navlist a:hover {
+  color: var(--primary-bgcolor);
+}
+.dropdown {
+  display: flex;
+  align-items: center;
+}
+.dropdown .icon {
+  stroke-width: 1px;
+}
+.dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 1.5rem;
+  min-width: 200px;
+  background-color: var(--white-color);
+  border-radius: 15px;
+  z-index: 1000;
+}
+.dropdown .dropdown-menu .list {
+  display: block;
+  width: 100%;
+  padding-bottom: 1.5rem;
+}
+
+.dropdown:hover {
+  color: var(--primary-bgcolor);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.navbar .navbar-navlist .li {
+  position: relative;
+}
+
+.navbar-button {
+  background-color: var(--primary-btncolor);
+  padding: 0.9rem 1.5rem;
+  color: var(--white-color);
+  border-radius: 30px;
+  font-size: 0.9rem;
+}
+
+/* -------------------- Mobile Styles -------
+...................------------- */
+.mobile-menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: black;
+}
+
+/* For screens below 768px */
+@media screen and (max-width: 768px) {
+  .navbar-navlist {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: var(--background-color);
+    padding: 1rem 0;
+    gap: 1.5rem;
+    border-top: 1px solid #ccc;
+    z-index: 999;
+  }
+  .navbar-button {
+    display: none;
+  }
+  .navbar-navlist.active {
+    display: flex;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+  .dropdown {
+    width: 100%;
+  }
+  .dropdown .dropdown-menu {
+    position: static;
+    padding: 0.5rem 1rem;
+    background: none;
+    border-radius: 0;
+  }
+  .dropdown.open .dropdown-menu,
+  .dropdown-menu.show {
+    display: block; /* show on click in mobile */
+  }
+  .dropdown:hover .dropdown-menu {
+    display: none; /* disable hover effect on mobile */
+  }
+  .dropdown-menu .list {
+    padding-bottom: 0.8rem;
+  }
+}
