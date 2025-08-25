@@ -4,35 +4,14 @@ const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const db = require("./config/db");
 dotenv.config();
-
+const userRoutes = require("./routes/usersRoutes");
+const patientRoutes = require("./routes/patientsRoutes");
 const app = express();
-
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  //res.json();
-  res.status(200).json({
-    data: {
-      id: 1,
-      name: "badhra",
-      city: "basu",
-    },
-    message: "Data Fecth successfully",
-  });
-});
-
-app.get("/getUser", (req, res) => {
-  const sql = "SELECT * FROM users";
-
-  db.query(sql, (err, result) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).json({ error: "Server error" });
-    }
-    res.json(result);
-  });
-});
+app.use("/api/users", userRoutes);
+app.use("/api/patients", patientRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;

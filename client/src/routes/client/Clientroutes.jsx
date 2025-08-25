@@ -9,11 +9,16 @@ import Appointmentform from "../../pages/client/Appointmentform";
 import BlogPage from "../../pages/client/BlogPage";
 import FAQSPage from "../../pages/client/FAQSPage";
 import ConatactPage from "../../pages/client/ConatactPage";
+import SingUp from "../../pages/client/SingUp";
+import LoginPage from "../../pages/client/Login";
 function Clientroutes() {
   return (
     <>
       <Routes>
+        <Route path="/register" element={<SingUp />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<Layouts />}>
+          <Route path="/register" element={<SingUp />} />
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
