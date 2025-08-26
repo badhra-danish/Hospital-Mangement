@@ -135,8 +135,9 @@ function Navbar() {
           Contacts
         </NavLink>
       </div>
+
       <div className="navbar-button">
-        <div>Book An Appointment</div>
+        <div>SIGN IN</div>
       </div>
     </nav>
   );

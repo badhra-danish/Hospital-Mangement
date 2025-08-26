@@ -189,7 +189,8 @@
     display: block; /* show on click in mobile */
   }
   .dropdown:hover .dropdown-menu {
-    display: none; /* disable hover effect on mobile */
+    flex-direction: column;
+    position: static;
   }
   .dropdown-menu .list {
     padding-bottom: 0.8rem;

@@ -20,8 +20,8 @@ const Users = {
 
   // Find user by email
   findByEmail: (email, callback) => {
-    const sql = "SELECT * FROM users WHERE email = ?";
-    db.query(sql, [email], callback);
+    const sql = "SELECT * FROM users WHERE email = ? OR phone = ?";
+    db.query(sql, [email, email], callback);
   },
 };
 

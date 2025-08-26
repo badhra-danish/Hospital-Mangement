@@ -17,8 +17,8 @@ function Clientroutes() {
       <Routes>
         <Route path="/register" element={<SingUp />} />
         <Route path="/login" element={<LoginPage />} />
+
         <Route path="/" element={<Layouts />}>
-          <Route path="/register" element={<SingUp />} />
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />

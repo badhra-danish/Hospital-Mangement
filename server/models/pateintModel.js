@@ -19,9 +19,41 @@ const Patient = {
     );
   },
 
+  update: (updatepatient, patient_id, callback) => {
+    const sql = `UPDATE patients 
+    SET fullname = ? , dob = ? , gender = ?, bloodgroup = ? ,address = ? , emergency_contact = ? 
+    WHERE patient_id = ?`;
+    db.query(
+      sql,
+      [
+        updatepatient.fullname,
+        updatepatient.dob,
+        updatepatient.gender,
+        updatepatient.bloodgroup,
+        updatepatient.address,
+        updatepatient.emergency_contact,
+        patient_id,
+      ],
+      callback
+    );
+  },
+
+  getallPatient: (callback) => {
+    const sql = `
+    SELECT 
+      p.*,
+      u.email
+    FROM patients p
+    JOIN users u ON p.patient_id = u.user_id
+  `;
+    db.query(sql, callback);
+  },
+
   findByUserId: (patient_id, callback) => {
     db.query(
-      "SELECT * FROM patients WHERE patient_id = ?",
+      `SELECT p.*, u.email FROM patients p 
+       JOIN users u ON p.patient_id = u.user_id
+       WHERE patient_id = ?;`,
       [patient_id],
       callback
     );
