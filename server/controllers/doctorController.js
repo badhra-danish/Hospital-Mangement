@@ -77,8 +77,30 @@ exports.updateDoctor = (req, res) => {
         .status(500)
         .json({ status: "Fail", message: "Database Error", error: err });
     }
+    if (result.affectedRows === 0) {
+      return res.status(404).json({
+        status: "fail",
+        message: "Doctor Not Found",
+      });
+    }
     res
       .status(200)
       .json({ status: "success", message: "Doctor Update Succsess", result });
+  });
+};
+
+exports.getallDoctors = (req, res) => {
+  Doctor.getallDoctor((err, result) => {
+    if (err) {
+      res
+        .status(500)
+        .json({ status: "Fail", message: "Database Error", error: err });
+    }
+    if (result.length === 0) {
+      res.json({ message: "Doctor Not Found" });
+    }
+    res
+      .status(200)
+      .json({ status: "success", message: "All Doctor Detail", result });
   });
 };

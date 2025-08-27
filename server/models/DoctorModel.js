@@ -4,7 +4,7 @@ const Doctor = {
   create: (doctor, callback) => {
     const query = `
   INSERT INTO doctors 
-  (doctor_id, name, specialization, license_number, qualification, experience, gender, availability, contact_number, status, department) 
+  (doctor_id, name, specialization, license_number, qualification, experience, gender, availability, contact_number, status, department_id) 
   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
     (SELECT department_id FROM departments WHERE name = ?)
   )
@@ -23,7 +23,7 @@ const Doctor = {
         doctor.availability,
         doctor.conatct_number,
         doctor.status,
-        doctor.department,
+        doctor.department_id,
       ],
       callback
     );
@@ -42,7 +42,7 @@ const Doctor = {
     availability = ?, 
     contact_number = ?, 
     status = ?, 
-    department = (SELECT department_id FROM departments WHERE name = ?) 
+    department_id = (SELECT department_id FROM departments WHERE name = ?) 
   WHERE doctor_id = ?`;
 
     db.query(
@@ -57,11 +57,19 @@ const Doctor = {
         updateDoctor.availability,
         updateDoctor.conatct_number,
         updateDoctor.status,
-        updateDoctor.department,
+        updateDoctor.department_id,
         updateDoctor.doctor_id,
       ],
       callback
     );
+  },
+
+  getallDoctor: (callback) => {
+    const query = `SELECT d.* , dept.name AS department_name 
+    FROM doctors d
+    JOIN  departments dept ON  d.department_id = dept.department_id
+  `;
+    db.query(query, callback);
   },
 };
 module.exports = Doctor;
