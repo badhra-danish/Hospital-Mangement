@@ -1,0 +1,84 @@
+const Doctor = require("../models/DoctorModel");
+const { v4: uuidv4 } = require("uuid");
+exports.createDoctor = (req, res) => {
+  const doctor_id = uuidv4();
+  const {
+    name,
+    specialization,
+    license_number,
+    qualification,
+    experience,
+    gender,
+    availability,
+    conatct_number,
+    status,
+    department,
+  } = req.body;
+
+  const doctor = {
+    doctor_id,
+    name,
+    specialization,
+    license_number,
+    qualification,
+    experience,
+    gender,
+    availability,
+    conatct_number,
+    status,
+    department,
+  };
+  Doctor.create(doctor, (err, result) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ status: "Fail", message: "Database Error", error: err });
+    }
+    res.status(201).json({
+      status: "Success",
+      message: "Doctor Create Successfully",
+      result,
+    });
+  });
+};
+
+exports.updateDoctor = (req, res) => {
+  const { doctor_id } = req.params;
+  const {
+    name,
+    specialization,
+    license_number,
+    qualification,
+    experience,
+    gender,
+    availability,
+    conatct_number,
+    status,
+    department,
+  } = req.body;
+
+  const updateDoctor = {
+    name,
+    specialization,
+    license_number,
+    qualification,
+    experience,
+    gender,
+    availability,
+    conatct_number,
+    status,
+    department,
+    doctor_id,
+  };
+
+  Doctor.update(updateDoctor, (err, result) => {
+    if (err) {
+      res
+        .status(500)
+        .json({ status: "Fail", message: "Database Error", error: err });
+    }
+    res
+      .status(200)
+      .json({ status: "success", message: "Doctor Update Succsess", result });
+  });
+};
