@@ -1,3 +1,4 @@
+const { json } = require("body-parser");
 const Doctor = require("../models/DoctorModel");
 const { v4: uuidv4 } = require("uuid");
 exports.createDoctor = (req, res) => {
@@ -102,5 +103,20 @@ exports.getallDoctors = (req, res) => {
     res
       .status(200)
       .json({ status: "success", message: "All Doctor Detail", result });
+  });
+};
+
+exports.getDoctorbyId = (req, res) => {
+  const { doctor_id } = req.params;
+  Doctor.getDoctorbyId(doctor_id, (err, result) => {
+    if (err) {
+      res
+        .status(500)
+        .json({ status: "Fail", message: "Database Error", error: err });
+    }
+    if (result.length === 0) {
+      res.json({ message: "Doctor Not Found" });
+    }
+    res.status(200).json({ status: "Success", result });
   });
 };

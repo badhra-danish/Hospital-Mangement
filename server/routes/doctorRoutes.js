@@ -6,5 +6,6 @@ const DoctorController = require("../controllers/doctorController");
 router.post("/createdoctor", DoctorController.createDoctor);
 router.put("/updatedoctor/:doctor_id", DoctorController.updateDoctor);
 router.get("/getalldoctors", DoctorController.getallDoctors);
+router.get("/getdoctor/:doctor_id", DoctorController.getDoctorbyId);
 
 module.exports = router;

@@ -8,7 +8,7 @@ const Doctor = {
   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
     (SELECT department_id FROM departments WHERE name = ?)
   )
-`;
+  `;
 
     db.query(
       query,
@@ -67,9 +67,19 @@ const Doctor = {
   getallDoctor: (callback) => {
     const query = `SELECT d.* , dept.name AS department_name 
     FROM doctors d
-    JOIN  departments dept ON  d.department_id = dept.department_id
+    JOIN  departments dept ON  d.department_id = dept.department_id 
   `;
     db.query(query, callback);
+  },
+
+  getDoctorbyId: (doctorid, callback) => {
+    const query = `SELECT d.* , dept.name AS department_name
+      FROM doctors d
+      JOIN  departments dept ON  d.department_id = dept.department_id
+      WHERE d.doctor_id = ?
+    `;
+    // const query = "SELECT * FROM doctors WHERE doctor_id = ?";
+    db.query(query, [doctorid], callback);
   },
 };
 module.exports = Doctor;
