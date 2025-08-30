@@ -4,8 +4,8 @@ const Doctor = {
   create: (doctor, callback) => {
     const query = `
   INSERT INTO doctors 
-  (doctor_id, name, specialization, license_number, qualification, experience, gender, availability, contact_number, status, department_id) 
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
+  (doctor_id, name,email, specialization, license_number, qualification, experience, gender, availability, contact_number, status, avatar_url,department_id) 
+  VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
     (SELECT department_id FROM departments WHERE name = ?)
   )
   `;
@@ -15,6 +15,7 @@ const Doctor = {
       [
         doctor.doctor_id,
         doctor.name,
+        doctor.email,
         doctor.specialization,
         doctor.license_number,
         doctor.qualification,
@@ -23,7 +24,8 @@ const Doctor = {
         doctor.availability,
         doctor.conatct_number,
         doctor.status,
-        doctor.department_id,
+        doctor.avatar_url,
+        doctor.department,
       ],
       callback
     );
@@ -57,7 +59,7 @@ const Doctor = {
         updateDoctor.availability,
         updateDoctor.conatct_number,
         updateDoctor.status,
-        updateDoctor.department_id,
+        updateDoctor.department,
         updateDoctor.doctor_id,
       ],
       callback
