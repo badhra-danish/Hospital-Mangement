@@ -2,6 +2,8 @@ const Doctor = require("../models/DoctorModel");
 const { v4: uuidv4 } = require("uuid");
 const path = require("path");
 const uploadCloudnary = require("../services/cloudnary");
+const { extractPublicId } = require("../utils/extractPublicId");
+
 // ----------------- Create Doctor -----------------
 exports.createDoctor = async (req, res) => {
   const doctor_id = uuidv4();
@@ -100,80 +102,123 @@ exports.createDoctor = async (req, res) => {
 };
 
 // ----------------- Update Doctor -----------------
-exports.updateDoctor = (req, res) => {
+
+exports.updateDoctor = async (req, res) => {
   const { doctor_id } = req.params;
-  const {
-    name,
-    specialization,
-    license_number,
-    qualification,
-    experience,
-    gender,
-    availability,
-    conatct_number,
-    status,
-    department,
-  } = req.body;
 
-  // Validation
-  if (!doctor_id) {
-    return res
-      .status(400)
-      .json({ status: "Fail", message: "doctor_id is required" });
-  }
+  try {
+    // 1. Find doctor by ID
+    Doctor.getDoctorbyId(doctor_id, async (err, result) => {
+      if (err || !result) {
+        return res
+          .status(404)
+          .json({ status: "Fail", message: "Doctor not found" });
+      }
 
-  if (conatct_number && !/^\d{10}$/.test(conatct_number)) {
-    return res.status(400).json({
-      status: "Fail",
-      message: "Contact number must be a valid 10-digit number",
-    });
-  }
+      let avatar_url = result.avatar_url;
+      let avatar_public_id = extractPublicId(avatar_url);
 
-  if (gender && !["male", "female", "other"].includes(gender)) {
-    return res.status(400).json({
-      status: "Fail",
-      message: "Gender must be Male, Female, or Other",
-    });
-  }
+      try {
+        // 2. Handle new file upload
+        if (req.files && req.files.doctorImg_url) {
+          const localfilePath = req.files.doctorImg_url[0].path;
 
-  // if (experience && isNaN(Number(experience))) {
-  //   //   return res
-  //   //     .status(400)
-  //   //     .json({ status: "Fail", message: "Experience must be a number" });
-  //   // }
+          // Delete old image from cloudinary
+          if (avatar_public_id) {
+            await uploadCloudnary.deleteFromCloudinary(avatar_public_id);
+          }
 
-  const updateDoctor = {
-    doctor_id,
-    name,
-    specialization,
-    license_number,
-    qualification,
-    experience,
-    gender,
-    availability,
-    conatct_number,
-    status,
-    department,
-  };
+          // Upload new image
+          const uploadRes = await uploadCloudnary.uploadonCloudnary(
+            localfilePath
+          );
+          avatar_url = uploadRes.secure_url;
+        }
+      } catch (cloudErr) {
+        return res.status(500).json({
+          status: "Fail",
+          message: "Cloudinary Error",
+          error: cloudErr,
+        });
+      }
 
-  Doctor.update(updateDoctor, (err, result) => {
-    if (err) {
-      return res
-        .status(500)
-        .json({ status: "Fail", message: "Database Error", error: err });
-    }
-    if (result.affectedRows === 0) {
-      return res.status(404).json({
-        status: "Fail",
-        message: "Doctor not found",
+      // 3. Extract fields
+      const {
+        name,
+        email,
+        specialization,
+        license_number,
+        qualification,
+        experience,
+        gender,
+        availability,
+        conatact_number,
+        status,
+        department,
+      } = req.body;
+
+      // 4. Validation
+      if (!doctor_id) {
+        return res
+          .status(400)
+          .json({ status: "Fail", message: "doctor_id is required" });
+      }
+
+      if (conatact_number && !/^\d{10}$/.test(conatact_number)) {
+        return res.status(400).json({
+          status: "Fail",
+          message: "Contact number must be a valid 10-digit number",
+        });
+      }
+
+      if (gender && !["male", "female", "other"].includes(gender)) {
+        return res.status(400).json({
+          status: "Fail",
+          message: "Gender must be Male, Female, or Other",
+        });
+      }
+      const updateDoctor = {
+        doctor_id,
+        name,
+        email,
+        specialization,
+        license_number,
+        qualification,
+        experience,
+        gender,
+        availability,
+        conatact_number,
+        status,
+        department,
+        avatar_url,
+      };
+
+      Doctor.update(updateDoctor, (err, result) => {
+        if (err) {
+          return res
+            .status(500)
+            .json({ status: "Fail", message: "Database Error", error: err });
+        }
+        if (result.affectedRows === 0) {
+          return res.status(404).json({
+            status: "Fail",
+            message: "Doctor not found",
+          });
+        }
+        res.status(200).json({
+          status: "Success",
+          message: "Doctor updated successfully",
+          result,
+        });
       });
-    }
-    res.status(200).json({
-      status: "Success",
-      message: "Doctor updated successfully",
-      result,
     });
-  });
+  } catch (err) {
+    res.status(500).json({
+      status: "Fail",
+      message: "Unexpected Error",
+      error: err.message || err,
+    });
+  }
 };
 
 // ----------------- Get All Doctors -----------------

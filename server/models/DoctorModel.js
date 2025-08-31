@@ -36,6 +36,7 @@ const Doctor = {
     UPDATE doctors 
   SET 
     name = ?, 
+    email = ?,
     specialization = ?, 
     license_number = ?, 
     qualification = ?, 
@@ -44,6 +45,7 @@ const Doctor = {
     availability = ?, 
     contact_number = ?, 
     status = ?, 
+    avatar_url = ?,
     department_id = (SELECT department_id FROM departments WHERE name = ?) 
   WHERE doctor_id = ?`;
 
@@ -51,14 +53,16 @@ const Doctor = {
       query,
       [
         updateDoctor.name,
+        updateDoctor.email,
         updateDoctor.specialization,
         updateDoctor.license_number,
         updateDoctor.qualification,
         updateDoctor.experience,
         updateDoctor.gender,
         updateDoctor.availability,
-        updateDoctor.conatct_number,
+        updateDoctor.conatact_number,
         updateDoctor.status,
+        updateDoctor.avatar_url,
         updateDoctor.department,
         updateDoctor.doctor_id,
       ],
@@ -82,6 +86,11 @@ const Doctor = {
     `;
     // const query = "SELECT * FROM doctors WHERE doctor_id = ?";
     db.query(query, [doctorid], callback);
+  },
+
+  Delete: (doctor_id, callback) => {
+    const query = `DELETE FROM doctors WHERE doctor_id = ?`;
+    db.query(query, [doctor_id], callback);
   },
 };
 module.exports = Doctor;
