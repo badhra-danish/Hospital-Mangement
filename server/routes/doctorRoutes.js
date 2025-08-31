@@ -17,5 +17,6 @@ router.put(
 );
 router.get("/getalldoctors", DoctorController.getallDoctors);
 router.get("/getdoctor/:doctor_id", DoctorController.getDoctorbyId);
+router.delete("/deletedoctor/:doctor_id", DoctorController.deleteDoctorbyId);
 
 module.exports = router;

@@ -96,7 +96,6 @@ exports.createDoctor = async (req, res) => {
     res.status(201).json({
       status: "Success",
       message: "Doctor created successfully",
-      result,
     });
   });
 };
@@ -208,7 +207,6 @@ exports.updateDoctor = async (req, res) => {
         res.status(200).json({
           status: "Success",
           message: "Doctor updated successfully",
-          result,
         });
       });
     });
@@ -229,7 +227,7 @@ exports.getallDoctors = (req, res) => {
         .status(500)
         .json({ status: "Fail", message: "Database Error", error: err });
     }
-    if (result.length === 0) {
+    if (result.length === 0 || !result) {
       return res
         .status(404)
         .json({ status: "Fail", message: "No doctors found" });
@@ -241,8 +239,37 @@ exports.getallDoctors = (req, res) => {
     });
   });
 };
+// -----------------Delete Doctor By Id  -----------------
+exports.deleteDoctorbyId = (req, res) => {
+  const { doctor_id } = req.params;
+
+  Doctor.getDoctorbyId(doctor_id, (err, result) => {
+    if (err || !result) {
+      return res
+        .status(404)
+        .json({ status: "Fail", message: "Doctor not found" });
+    }
+    if (!doctor_id) {
+      return res
+        .status(400)
+        .json({ status: "Fail", message: "doctor_id is required" });
+    }
+
+    Doctor.Delete(doctor_id, (err, result) => {
+      if (err || !result) {
+        return res
+          .status(400)
+          .json({ status: "Success", message: "Database Error", error: err });
+      }
+      res
+        .status(200)
+        .json({ status: "Success", message: "Doctor Delete Successfully" });
+    });
+  });
+};
 
 // ----------------- Get Doctor by ID -----------------
+
 exports.getDoctorbyId = (req, res) => {
   const { doctor_id } = req.params;
   if (!doctor_id) {
@@ -251,17 +278,43 @@ exports.getDoctorbyId = (req, res) => {
       .json({ status: "Fail", message: "doctor_id is required" });
   }
 
-  Doctor.getDoctorbyId(doctor_id, (err, result) => {
-    if (err) {
-      return res
-        .status(500)
-        .json({ status: "Fail", message: "Database Error", error: err });
-    }
-    if (result.length === 0) {
-      return res
-        .status(404)
-        .json({ status: "Fail", message: "Doctor not found" });
-    }
-    res.status(200).json({ status: "Success", result });
-  });
+  const avatar_url = res.avatar_url;
+  let avatar_public_id = null;
+  if (avatar_url) {
+    avatar_public_id = extractPublicId(avatar_url);
+  }
+
+  try {
+    Doctor.Delete(doctor_id, async (err, result) => {
+      if (err) {
+        return res.status(500).json({
+          status: "Fail",
+          message: "Database Error",
+          error: err,
+        });
+      }
+
+      if (result.affectedRows === 0) {
+        return res.status(404).json({
+          status: "Fail",
+          message: "Doctor not found",
+        });
+      }
+
+      if (avatar_public_id) {
+        await uploadCloudnary.deleteFromCloudinary(avatar_public_id);
+      }
+
+      return res.status(200).json({
+        status: "Success",
+        message: "Doctor deleted successfully",
+      });
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: "Fail",
+      message: "Error while deleting doctor",
+      error,
+    });
+  }
 };
