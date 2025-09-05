@@ -7,12 +7,17 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+const sequelize = require("./config/db");
 app.use(express.urlencoded({ extended: true }));
 // ................Routes ...................
+sequelize
+  .sync({ alter: true })
+  .then(() => console.log("Tables synced with database"))
+  .catch((err) => console.error("Sync error:", err));
 
-const userRoutes = require("./routes/usersRoutes");
-const patientRoutes = require("./routes/patientsRoutes");
-const doctorRoutes = require("./routes/doctorRoutes");
+const userRoutes = require("./routes/users.Routes");
+const patientRoutes = require("./routes/patients.Routes");
+const doctorRoutes = require("./routes/doctor.Routes");
 
 app.use("/api/users", userRoutes);
 app.use("/api/patients", patientRoutes);
