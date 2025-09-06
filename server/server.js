@@ -9,19 +9,20 @@ app.use(cors());
 app.use(bodyParser.json());
 const sequelize = require("./config/db");
 app.use(express.urlencoded({ extended: true }));
-// ................Routes ...................
+sequelize
+  .authenticate()
+  .then(() => console.log("Database connected"))
+  .catch((err) => console.error("DB connection error:", err));
+
 sequelize
   .sync({ alter: true })
   .then(() => console.log("Tables synced with database"))
   .catch((err) => console.error("Sync error:", err));
 
-const userRoutes = require("./routes/users.Routes");
-const patientRoutes = require("./routes/patients.Routes");
-const doctorRoutes = require("./routes/doctor.Routes");
+// ................API Routes ...................
+const routes = require("./routes/index.Routes");
 
-app.use("/api/users", userRoutes);
-app.use("/api/patients", patientRoutes);
-app.use("/api/doctors", doctorRoutes);
+app.use("/api", routes);
 
 // Start server
 const PORT = process.env.PORT || 5000;

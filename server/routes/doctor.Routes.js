@@ -15,8 +15,8 @@ router.put(
   uploads.upload.fields([{ name: "doctorImg_url", maxCount: 1 }]),
   DoctorController.updateDoctor
 );
-router.get("/getalldoctors", DoctorController.getallDoctors);
-router.get("/getdoctor/:doctor_id", DoctorController.getDoctorbyId);
-router.delete("/deletedoctor/:doctor_id", DoctorController.deleteDoctorbyId);
+router.get("/getalldoctors", DoctorController.getAllDoctors);
+router.get("/getdoctor/:doctor_id", DoctorController.getDoctorById);
+router.delete("/deletedoctor/:doctor_id", DoctorController.deleteDoctor);
 
 module.exports = router;
