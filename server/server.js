@@ -9,13 +9,14 @@ app.use(cors());
 app.use(bodyParser.json());
 const sequelize = require("./config/db");
 app.use(express.urlencoded({ extended: true }));
+
 sequelize
   .authenticate()
   .then(() => console.log("Database connected"))
   .catch((err) => console.error("DB connection error:", err));
 
 sequelize
-  .sync({ alter: true })
+  .sync({ force: true })
   .then(() => console.log("Tables synced with database"))
   .catch((err) => console.error("Sync error:", err));
 

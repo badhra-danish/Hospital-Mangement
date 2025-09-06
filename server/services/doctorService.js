@@ -1,6 +1,8 @@
 const Doctor = require("../models/DoctorModel");
 const uploadCloudnary = require("./cloudnary");
 const { extractPublicId } = require("../utils/extractPublicId");
+const Department = require("../models/departmentModel");
+const Sequelize = require("../config/db");
 
 // Create Doctor
 exports.createDoctor = async (data, file) => {
@@ -9,9 +11,15 @@ exports.createDoctor = async (data, file) => {
   const avatarUpload = await uploadCloudnary.uploadonCloudnary(file.path);
   if (!avatarUpload?.secure_url) throw new Error("Cloudinary upload failed");
 
+  const department = await Department.findOne({
+    where: { department_name: data.department },
+  });
+  if (!department) throw new Error("Invalid department name");
+
   const doctor = await Doctor.create({
     ...data,
     avatar_url: avatarUpload.secure_url,
+    department_id: department.department_id,
   });
 
   return doctor;
@@ -33,9 +41,16 @@ exports.updateDoctor = async (doctor_id, updateData, file) => {
     avatar_url = uploadRes.secure_url;
   }
 
+  const department = await Department.findOne({
+    where: { department_name: updateData.department },
+  });
+  if (!department) throw new Error("Invalid department name");
+  const department_id = department.department_id;
+
   await doctor.update({
     ...updateData,
     avatar_url,
+    department_id,
   });
 
   return doctor;
@@ -44,15 +59,26 @@ exports.updateDoctor = async (doctor_id, updateData, file) => {
 // Get All Doctors
 exports.getAllDoctors = async () => {
   return await Doctor.findAll({
-    include: [{ association: "department" }], // shows department info
+    attributes: {
+      include: [
+        [Sequelize.col("department.department_name"), "department_name"],
+      ],
+    },
+    include: [{ association: "department", attributes: [] }],
   });
 };
 
 // Get Doctor by ID
 exports.getDoctorById = async (doctor_id) => {
   const doctor = await Doctor.findByPk(doctor_id, {
-    include: [{ association: "department" }],
+    attributes: {
+      include: [
+        [Sequelize.col("department.department_name"), "department_name"],
+      ],
+    },
+    include: [{ association: "department", attributes: [] }],
   });
+
   if (!doctor) throw new Error("Doctor not found");
   return doctor;
 };
